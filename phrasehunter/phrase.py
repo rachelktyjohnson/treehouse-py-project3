@@ -1,4 +1,3 @@
-# Create your Phrase class logic here.
 class Phrase:
     def __init__(self, in_phrase):
         self.phrase = in_phrase.lower()
@@ -28,7 +27,3 @@ class Phrase:
     def check_complete(self):
         #  checks to see if the whole phrase has been guessed
         return "_" not in self.phrase_display
-
-
-phrase = Phrase("hello wo")
-phrase.display()
