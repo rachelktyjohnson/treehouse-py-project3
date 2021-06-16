@@ -68,7 +68,7 @@ class Game:
             print("The phrase was: {}".format(self.active_phrase.phrase))
 
         print("\nWould you like to play again?")
-        again = input("YES, or enter any key to exit: ")
+        again = input("YES, or enter any key to exit: ").upper()
         if again == "YES":
             print("New game... coming up!")
             time.sleep(1)
