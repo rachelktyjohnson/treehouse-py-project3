@@ -27,7 +27,7 @@ class Game:
                     self.active_phrase.display()
                     user_guess = self.get_guess()
                     if self.active_phrase.check_letter(user_guess):
-                        print("Great! {} was correct".format(user_guess))
+                        print("Great! {} is in the phrase".format(user_guess))
                     else:
                         print("Oops! {} is not in the phrase. {} out of 5 lives remaining!".format(user_guess, 4-self.missed))
                         self.missed += 1
@@ -67,8 +67,8 @@ class Game:
             print("You guessed incorrect 5 times. Game over!")
             print("The phrase was: {}".format(self.active_phrase.phrase))
 
-        print("Would you like to play again?")
-        again = input("YES or enter any key to exit: ")
+        print("\nWould you like to play again?")
+        again = input("YES, or enter any key to exit: ")
         if again == "YES":
             print("New game... coming up!")
             time.sleep(1)
@@ -77,6 +77,6 @@ class Game:
             self.guesses = []
             return True
         else:
-            print("Thanks for playing. See you next time!")
+            print("\nThanks for playing. See you next time!")
             print("└[∵┌]└[ ∵ ]┘[┐∵]┘")
             return False
