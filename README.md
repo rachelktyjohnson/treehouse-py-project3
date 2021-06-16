@@ -2,7 +2,9 @@
 
 Create a word guessing game: "Phrase Hunter." You’ll use Python and OOP (Object-Oriented Programming) approaches to select a phrase at random, hidden from the player. A player tries to guess the phrase by inputting individual characters.
 
-Flow of the game
+---
+
+## Flow of the game
 
 Using Python, you’ll create two Python classes with specific attributes and methods. You'll create a Game class for managing the game, and a Phrase class to help with storing attributes of a phrase with specific methods to help determine how to display the phrase in the game.
 
