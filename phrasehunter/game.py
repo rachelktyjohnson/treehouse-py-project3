@@ -19,20 +19,22 @@ class Game:
 
     def start(self):
         self.welcome()
-        self.active_phrase = Phrase(self.get_random_phrase())
-        while self.missed < 5:
-            if not self.active_phrase.check_complete():
-                self.active_phrase.display()
-                user_guess = self.get_guess()
-                if self.active_phrase.check_letter(user_guess):
-                    print("Great! {} was correct".format(user_guess))
+        play_game = True
+        while play_game:
+            self.active_phrase = Phrase(self.get_random_phrase())
+            while self.missed < 5:
+                if not self.active_phrase.check_complete():
+                    self.active_phrase.display()
+                    user_guess = self.get_guess()
+                    if self.active_phrase.check_letter(user_guess):
+                        print("Great! {} was correct".format(user_guess))
+                    else:
+                        print("Oops! {} is not in the phrase. {} out of 5 lives remaining!".format(user_guess, 4-self.missed))
+                        self.missed += 1
+                    print()
                 else:
-                    print("Oops! {} is not in the phrase. {} out of 5 lives remaining!".format(user_guess, 4-self.missed))
-                    self.missed += 1
-                print()
-            else:
-                break
-        self.game_over()
+                    break
+            play_game = self.game_over()
 
     def get_random_phrase(self):
         return random.choice(self.phrases)
@@ -64,5 +66,17 @@ class Game:
         else:
             print("You guessed incorrect 5 times. Game over!")
             print("The phrase was: {}".format(self.active_phrase.phrase))
-        print("Thanks for playing. See you next time!")
-        print("└[∵┌]└[ ∵ ]┘[┐∵]┘")
+
+        print("Would you like to play again?")
+        again = input("YES or enter any key to exit: ")
+        if again == "YES":
+            print("New game... coming up!")
+            time.sleep(1)
+            self.active_phrase = None
+            self.missed = 0
+            self.guesses = []
+            return True
+        else:
+            print("Thanks for playing. See you next time!")
+            print("└[∵┌]└[ ∵ ]┘[┐∵]┘")
+            return False
