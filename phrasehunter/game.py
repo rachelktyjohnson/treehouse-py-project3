@@ -49,8 +49,12 @@ class Game:
         time.sleep(1)
 
     def get_guess(self):
-        user_guess = (input("Guess a letter: ")).lower()
-        #  add validation here later
+        while True:
+            user_guess = (input("Guess a letter: ")).lower()
+            if len(user_guess) == 1 and user_guess.isalpha():
+                break
+            else:
+                print("Make sure your guess is 1 letter!")
         self.guesses.append(user_guess)
         return user_guess
 
